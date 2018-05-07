@@ -35,5 +35,5 @@ curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
 curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($response)); 
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
 curl_setopt($ch, CURLOPT_HTTPHEADER, $header); 
-
+$result_str = curl_exec($ch);
 ?>
