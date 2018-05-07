@@ -10,7 +10,7 @@
   $sender_replyToken = $json_obj->events[0]->replyToken; //取得訊息的replyToken
   
   $sender_txt=rawurlencode($sender_txt); //因為使用get的方式呼叫luis api，所以需要轉碼
-  $ch = curl_init('https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/cd632f15-651e-4aba-8bb7-53574d0a058f?subscription-key=2a863065f54443ea94d997c076d6727b&staging=true&verbose=true&timezoneOffset=0&q=	'.$sender_txt);                                                                      
+  $ch = curl_init('https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/cd632f15-651e-4aba-8bb7-53574d0a058f?subscription-key=2a863065f54443ea94d997c076d6727b&staging=true&verbose=true&timezoneOffset=0&q='.$sender_txt);                                                                      
   curl_setopt($ch, CURLOPT_CUSTOMREQUEST, ""GET"");                                                                                                                          
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
   $result_str = curl_exec($ch);
@@ -31,7 +31,7 @@
  fwrite($myfile, ""\xEF\xBB\xBF"".json_encode($response)); //在字串前面加上\xEF\xBB\xBF轉成utf8格式
   $header[] = ""Content-Type: application/json"";
   $header[] = ""Authorization: Bearer gd1gyH+Pc5TROu9ku5u/5tDvFnffsU8nXU69zXuhTgE0dIS5nVGmx9Js8PwijeUqgFuwWXzyJ14/N5FUmp/UXsmSJbUsxMGA6AW1gozlf6cbEgSGLiC02BEaRa5wUSqE7df8FOANP1WjPW8Mh/TgtwdB04t89/1O/w1cDnyilFU="";
-  $ch = curl_init(""https://api.line.me/v2/bot/message/reply"");
+  $ch = curl_init(""https://api.line.me/v2/bot/message/push"");
   curl_setopt($ch, CURLOPT_CUSTOMREQUEST, ""POST"");
   curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($response));                                                                  
   curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);                                                                      
