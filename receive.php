@@ -14,6 +14,26 @@
       array (
         "type" => "text",
         "text" => "Hello. You say". $sender_txt
+	      
+	       "type": "template",
+  "altText": "this is a buttons template",
+  "template": {
+    "type": "buttons",
+    "actions": [
+      {
+        "type": "message",
+        "label": "動作 1",
+        "text": "動作 1"
+      },
+      {
+        "type": "message",
+        "label": "動作 2",
+        "text": "動作 2"
+      }
+    ],
+    "thumbnailImageUrl": "SPECIFY_YOUR_IMAGE_URL",
+    "title": "標題",
+    "text": "文字"
       )
     )
   );
